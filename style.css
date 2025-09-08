@@ -1,48 +1,44 @@
+/* 🎨 Theme Variables */
+:root {
+  --bg-root: #e8ebe5;
+  --bg-card: #f9f8f4;
+  --text-color: #3A3335;
+  --btn-primary: #abaaa6;
+  --btn-primary-active: #7c7d7a;
+  --btn-danger: #da6228;
+  --btn-danger-active: #b84e1f;
+  --shadow: 3px 3px 2px #888888;
+}
+
+body.dark-theme {
+  --bg-root: #2c2c2c;
+  --bg-card: #3a3a3a;
+  --text-color: #f1f1f1;
+  --btn-primary: #666666;
+  --btn-primary-active: #444444;
+  --btn-danger: #e06c75;
+  --btn-danger-active: #c65c65;
+  --shadow: 3px 3px 6px rgba(0,0,0,0.5);
+}
+
+/* 🔲 Root container */
 #root {
-  background: #e8ebe5;
+  background: var(--bg-root);
   width: 350px;
   height: 170px;
   margin: auto;
-  border-radius: 1%;
-  box-shadow: 5px 5px 2px #888888;
-  margin-top: 3px;
+  border-radius: 6px;
+  box-shadow: var(--shadow);
+  margin-top: 10px;
+  padding: 10px;
 }
 
+/* 📝 Base styles */
 body {
-  color: #3A3335;
-  font-family: VT323;
+  color: var(--text-color);
+  font-family: "VT323", monospace;
   font-weight: bold;
-}
-
-
-.pomodoro {
-  height: 70px;
-  display: flex;
-  background: #f9f8f4;
-  justify-content: center;
-  box-shadow: 1px 1px 1px #888888;
-}
-
-
-.pomodoro button {
-  padding: 5px 10px 5px 10px;
-  margin-top: 100%;
-  border: none;
-  background: #abaaa6;
-  font-size: 15px;
-  font-family: VT323;
-  font-weight: bold;
-  text-align: center;
-  box-shadow: 3px 3px 2px #888888;
-}
-
-.pomodoro button:active {
-  background: #7c7d7a; 
-  box-shadow: 0 0 0 transparent;
-}
-
-.pomodoro button:focus {
-  outline:0;
+  transition: background 0.3s, color 0.3s;
 }
 
 .title {
@@ -50,60 +46,87 @@ body {
   font-size: 20px;
 }
 
+/* ⏲️ Pomodoro */
+.pomodoro {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-card);
+  box-shadow: 1px 1px 1px #888888;
+  border-radius: 4px;
+}
+
+.pomodoro button {
+  padding: 5px 10px;
+  border: none;
+  background: var(--btn-primary);
+  font-size: 15px;
+  font-family: inherit;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.pomodoro button:active {
+  background: var(--btn-primary-active);
+  box-shadow: none;
+}
+
 .pomodoro .timer {
   font-size: 75px;
   margin: 0 20px;
 }
 
+/* ▶️ Start / Pause */
 .start-pause {
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
 
 .start-pause button {
-  border: none;
-  background: #abaaa6;
-  font-family: VT323;
-  font-weight: bold;
-  margin: 15px;
-  box-shadow: 3px 3px 2px #888888;
+  background: var(--btn-primary);
+  margin: 10px;
   width: 90px;
   font-size: 25px;
+  box-shadow: var(--shadow);
+  border-radius: 6px;
+  cursor: pointer;
 }
 
 .start-pause button:active {
-   background: #7c7d7a; 
-  box-shadow: 0 0 0 transparent;
+  background: var(--btn-primary-active);
+  box-shadow: none;
 }
 
-.start-pause button:focus {
-  outline: 0;
-}
-
+/* 🔄 Reset */
 .reset {
   text-align: center;
+  margin-top: 10px;
 }
 
 .reset button {
-  border: none;
-  background: #da6228;
+  background: var(--btn-danger);
+  color: #fff;
   font-size: 25px;
-  font-family: VT323;
+  font-family: inherit;
   font-weight: bold;
-  box-shadow: 3px 3px 2px #888888;
-  margin-left: 115px;
+  box-shadow: var(--shadow);
+  border-radius: 6px;
   width: 90px;
-
+  cursor: pointer;
 }
 
 .reset button:active {
-  box-shadow: 0 0 0 transparent;
+  background: var(--btn-danger-active);
+  box-shadow: none;
 }
 
-.reset button:focus {
-  outline: 0;
-}
-
+/* ☕ Break Length */
 .contain-it {
   display: flex;
   justify-content: center;
@@ -116,23 +139,26 @@ body {
 
 .break-time {
   display: flex;
-  flex-flow: row;
   align-items: center;
   font-size: 15px;
 }
 
 .break-time button {
-  border: none;
-  background: #da6228;
-  box-shadow: 1px 1px 1px #888888;
+  background: var(--btn-danger);
+  color: #fff;
+  font-size: 18px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  margin: 0 5px;
+  box-shadow: var(--shadow);
+  cursor: pointer;
+  transition: background 0.2s ease;
 }
 
 .break-time button:active {
-  box-shadow: 0 0 0 transparent;
-}
-
-.break-time button:focus {
-  outline: 0;
+  background: var(--btn-danger-active);
+  box-shadow: none;
 }
 
 .break-text {
